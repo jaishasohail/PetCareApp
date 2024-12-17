@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "PetCareApp",
+    "slug": "PetCareApp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "googleServicesFile": "./google-services.json",
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.jaisha_ss1.PetCareApp"
+      
+    },
+    "web": {
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b15fda01-148b-4624-ad85-b46a70ce01a0"
+      }
+    }
+  }
+}

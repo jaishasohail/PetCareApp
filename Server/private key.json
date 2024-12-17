@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "pet-care-app-9c672",
+  "private_key_id": "25a626ce2a65716ba1c7c257c13f2b855aa40420",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDLmvcsq2GcXj1j\nMxT+nEF/dqNM5xlPg4flTXmv2h5qOpkMxmDyumx99ARr7TIGPVSrx+Bsj1Cxbx6w\nUyn+PVesCg5U1WjukNJNUKJrk2hqcC6X9NB4M+/kVNLKmvAvsahZfm7/vlcpLTyy\nCnZxTX4nknT6qmOzM8Gy0PRnbmrWb/9xAraQ9Qz36tddL1Z1k6436LR4HVbeaQDG\nWFuK98frfRUhjqPLEU31Dri/STICbZnKJ0WQb8wz3mPAG+KVzeXAq7wP/7o64vn5\n3zpCCqVzCdGanjQHCPyTfbRsRT8h+dywXD0mnpbDSPEhTy2krOxIhbqDheiBMixI\ntVD7vZ7pAgMBAAECggEAX7ts1cF9Q1ciOQbXK8IPn92J+co9YeAf4QaVHUSLAXqs\n5M9P3UEfavd1rsNXvoxOx/hSgui90bfEL7biq0pvcxJFW8j+LhHE+BpeTAOC2G0H\n02YGMUaGWI8zj5TbMymu1Ol4SmJWPCOrgrEdsLd1hii8PPIpr6Q5wpiyGgHWVR16\n78TMKFdSz1mg7496QzojXKL6T8o3v+VZAw7o7N4N8SQ9C6VUTw4cS/qxWz2MTBFW\n7q3RH2PO2Qi41rSYtD38AmOlfIDelIBvwCftnhClCnoZBMIit0nHr0287D5YsrVH\nAheKPNp4wM6Y+n8kc5WjLxHt1YOxUXwTlmrp0s+6OwKBgQD/OoXtFwv9kZP/kRIj\nId36nwE88KJwXdusij+FRge0mKvq401LqmktC3lS9yYdP811qBmFixwNtTyniZy9\ne6TfJ+YiJLGNL88LOxHyC4y1YF1tu05bQRi3e5Wo92bY2XjpqUrZpxgOtMR3l/Xc\nvugE0VIoLOk+L9n/CsicdfKFKwKBgQDMOIAJNUre2hEr65jb7F7CimqvPSvBi0ff\nZRvoJ1Q8Uh0RRV4kvrNO0xpSyV8c3zDSMonWMUrek5Ip0FcynsrXsj4C1BpbAdKm\n8uCw4OHc46eFlRKDyyfnNN0jj8rBnDNbZ0i3OY0wc/o6EHcv4nuRtgYf7rGk0hhX\n49GHRs/KOwKBgQD5hfW5PXbziIfwq5vXzRyAEUPcmEW3JYvGu8IuQbD21uv80AyZ\nlRkOeNE8U3Rn1CDCjn2lGcNrg2yxPtCGT4N4yEEt0EHljoAUssNwp+oAyR2OUjjg\n7luDxsciUf2ys6qKhoAvGjVi60fIxEASeHHNg/eWX5IIwi+WMKzAim930QKBgQDC\nClUtaqOPB2gVcS+2luqaseYYR2kR5wMNcgaIGQZioirYRC7lfwTkOpTiYE+tISxE\nLJznFcLrpQ/WBw0zHcniFIvzKBE6s4qx8kgoCCTTOsPrmu8Spq9tcb9EkNW4DHCH\nwqVG4roSdcAl94snxmxe0LMVGDlWQAG9UMu/WzsIDQKBgE7c0WAsP2N95+cMwtoK\n9Rp5pTpPjDoeUXcSMku7Igq3IYxvydr43AyEOFq5xcrXywhi3RECNTwlowdCVEZB\nKZPxHWlTj7Y67k731Q2SW0nxVDXQl2r9Hq9XMa6Yk47QqFJJDkTVzxDwdE7U/b9Z\nC8/Y+xginwqTFr5DzcPDG+kX\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-knp0f@pet-care-app-9c672.iam.gserviceaccount.com",
+  "client_id": "107473142585142556745",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-knp0f%40pet-care-app-9c672.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
