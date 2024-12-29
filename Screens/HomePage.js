@@ -8,30 +8,40 @@ export default function SignUpPage({ navigation }) {
   const [password, setPassword] = useState('');
   
 
-  const  handleSignUp = async() => {
+  const handleSignUp = async () => {
     console.log("Sign Up Button Pressed");
-    if(!name || !email || !password){
-        Alert.alert('Input Required', 'Please fill in the input field before proceeding.');
-    }
-    else{
-        // await fetch('http://192.168.1.69:5000/api/signUP', {
-        //     method: 'POST',
-        //     headers: {
-        //       'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({ name , email, password }),
-        //   })
-        //     .then((response) => response.json())
-        //     .then((data) =>{
-        //       setMessage(data.message);
-        //       console.log(message);
-        //     } )
-        //     .catch((error) => setMessage('Error: ' + error.message));
-        console.log(name ,email , password);
-        navigation.navigate("Profile Page",{name,email,password});
-    }
     
-    
+    if (!name || !email || !password) {
+      Alert.alert('Input Required', 'Please fill in all the fields before proceeding.');
+      return;
+    }
+  
+    try {
+      // Replace with your backend API endpoint
+      const response = await fetch('http://192.168.1.76:5000/api/signUP-1', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+  
+      const data = await response.json();
+  
+      if (response.status === 409) {
+        // Assuming 409 is returned for conflicts (username or email taken)
+        Alert.alert('Error', data.message || 'Username or email is already taken.');
+      } else if (response.status === 201) {
+        // Assuming 201 is returned for successful signup
+        Alert.alert('Success', 'Account created successfully!');
+        navigation.navigate('Profile Page', { name, email, password });
+      } else {
+        Alert.alert('Error', 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      Alert.alert('Error', 'An error occurred while signing up. Please try again later.');
+    }
   };
   const LoginNav=()=>{
     navigation.navigate("LoginPage")

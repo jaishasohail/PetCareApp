@@ -1,21 +1,23 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect,useContext } from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
 import { Video } from 'expo-av';
 import NetInfo from '@react-native-community/netinfo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { UserContext } from '../Context/UserContext';
 
 export default function LoginPage({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const [user,setUser]=useState({});
+  const { setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [isOnline, setIsOnline] = useState(true);
   useEffect(() => {
     console.log(user);
     console.log("hello");
     console.log(user.pets);
     if (user && user.pets && user.pets.length > 0) {
-      navigation.navigate('MainScreen', { user });
+      navigation.navigate('MainScreen');
     }
 
 
@@ -32,7 +34,7 @@ export default function LoginPage({ navigation }) {
     
     if (isOnline) {
     try {
-      const response = await fetch('http://192.168.1.39:5000/api/login', {
+      const response = await fetch('http://192.168.1.76:5000/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

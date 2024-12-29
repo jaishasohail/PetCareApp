@@ -156,7 +156,116 @@ app.post('/api/login', async (req, res) => {
     return res.status(400).send({ message: 'Invalid credentials' });
   }
 });
+app.post('/api/signUP-1', async (req, res) => {
+  const { name, email, password} = req.body;
 
+  // Check if all required fields are provided
+  if (!name || !email || !password) {
+    return res.status(400).send({ message: "All fields are required" });
+  }
+
+  try {
+    // Check if username or email already exists
+    const existingUsers = await db.collection('Users')
+      .where('email', '==', email)
+      .get();
+
+    if (!existingUsers.empty) {
+      return res.status(409).send({ message: "Username or email is already taken" });
+    }
+
+    
+    
+    res.status(201).send({ message: "Details saved successfully" });
+  } catch (error) {
+    console.error("Error saving user details:", error);
+    res.status(500).send({ message: "Internal server error" });
+  }
+});
+app.get('/api/diary/:userId', async (req, res) => {
+  const { userId } = req.params;
+  const userDiary = await db.collection('Users').doc(userId).collection('diary').get();
+  const entries = userDiary.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  res.json({ entries });
+});
+app.post('/api/diary/:userId', async (req, res) => {
+  const { userId } = req.params;
+  const { title, content } = req.body;
+
+  await db.collection('Users').doc(userId).collection('diary').add({
+    title,
+    content,
+    timestamp: new Date(),
+  });
+
+  res.status(200).send({ message: 'Entry added successfully.' });
+});
+app.post('/api/vaccination/:userId/:petId', async (req, res) => {
+  const { userId, petId } = req.params;
+  const { vaccineName, date, time } = req.body; // Date and Time of vaccination
+
+  try {
+    await db.collection('Users')
+      .doc(userId)
+      .collection('vaccination_reminders')
+      .add({
+        vaccineName,
+        date,
+        time,
+        timestamp: new Date(),
+      });
+
+    res.status(200).send({ message: 'Vaccination reminder saved successfully.' });
+  } catch (error) {
+    console.error('Error saving vaccination reminder:', error);
+    res.status(500).send({ message: 'Error saving vaccination reminder' });
+  }
+});
+app.post('/api/medication/:userId/:petId', async (req, res) => {
+  const { userId, petId } = req.params;
+  const { medicationName, dosage, startDate, endDate } = req.body;
+
+  try {
+    await db.collection('Users')
+      .doc(userId)
+      .collection('medication_logs')
+      .add({
+        medicationName,
+        dosage,
+        startDate,
+        endDate,
+        timestamp: new Date(),
+      });
+
+    res.status(200).send({ message: 'Medication log saved successfully.' });
+  } catch (error) {
+    console.error('Error saving medication log:', error);
+    res.status(500).send({ message: 'Error saving medication log' });
+  }
+});
+app.get('/api/vaccination/:userId/:petId', async (req, res) => {
+  const { userId, petId } = req.params;
+  const vaccinations = await db.collection('Users')
+    .doc(userId)
+    .collection('vaccination_reminders')
+    .get();
+  
+  const vaccinationRecords = vaccinations.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  
+  res.json({ vaccinationRecords });
+});
+
+app.get('/api/medication/:userId/:petId', async (req, res) => {
+  const { userId, petId } = req.params;
+  const medications = await db.collection('Users')
+    .doc(userId)
+    .collection('medication_logs')
+    .get();
+  
+  const medicationRecords = medications.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  
+  res.json({ medicationRecords });
+});
 
 
 app.listen(port, () => {

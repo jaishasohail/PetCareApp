@@ -1,21 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect ,useContext} from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity, Image, TextInput } from 'react-native';
 import { Video } from 'expo-av';
 import Navbar from './Components/NavBar';
 import { LinearGradient } from 'expo-linear-gradient';
+import { UserContext } from '../Context/UserContext';
 
-const MainScreen = ({route}) => {
-  const {user}=route.params;
+const MainScreen = ({navigation}) => {
+  const { user } = useContext(UserContext);
   console.log("In main");
   console.log(user.pets);
 
-    
+    //AIzaSyBIPqsK-avQUwOrhCaYoJyRgsmzZb4DrSk
   
   const options = [
-    { id: '1', title: 'Health', img:require("../assets/paw-health.png")},
-    { id: '2', title: 'Feeding and Exercise Scheduler', img:require("../assets/schedular.png") },
-    { id: '4', title: 'Pet Diary',img:require("../assets/diary.png") },
-    { id: '7', title: 'Pet Training',img:require("../assets/hamster.png") },
+    { id: '1', title: 'Health', img:require("../assets/paw-health.png"), nav:"health" },
+    { id: '2', title: 'Feeding and Exercise Scheduler', img:require("../assets/schedular.png") , nav:"notif"},
+    { id: '3', title: 'Pet Diary',img:require("../assets/diary.png"), nav:"Diary" },
+    { id: '4', title: 'Pet Training',img:require("../assets/hamster.png"), nav:"TrainPet" },
+    { id: '5', title: 'Track Your pet',img:require("../assets/collar.png"), nav:"chatGPT" },
+    { id: '6', title: 'Paw Hub Community',img:require("../assets/chat.png"), nav:"chatGPT" },
+    { id: '7', title: 'Chat with AI',img:require("../assets/chatGPT.png") , nav:"chatGPT"},
+    
   ];
 
 
@@ -24,7 +29,7 @@ const MainScreen = ({route}) => {
         colors={['#008cb8', '#52babf']} 
         style={styles.gradient}
       >
-    <TouchableOpacity style={styles.listItem}>
+    <TouchableOpacity style={styles.listItem} onPress={()=>navigation.navigate(item.nav)}>
     <Image source={item.img} style={styles.IMG}/>
         <Text style={styles.listItemText}>{item.title}</Text>
       

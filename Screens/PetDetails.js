@@ -70,7 +70,7 @@ export default function PetDetails({ navigation ,route}) {
     await AsyncStorage.setItem('users', JSON.stringify(users));
 
     console.log('User saved successfully with pets:', newUser);
-    await fetch('http://192.168.1.39:5000/api/signUP', {
+    await fetch('http://192.168.1.76:5000/api/signUP', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

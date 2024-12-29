@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "PetCareApp",
+    "googleServicesFile":"./google-services.json",
     "slug": "PetCareApp",
     "version": "1.0.0",
     "orientation": "portrait",
