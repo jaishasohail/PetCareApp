@@ -12,8 +12,12 @@ A brief explanation on the basic workflow of the application.
 - user can access the group chat of pet parents where the socialize or ask something related to their pet .
 - user can ask chatbot for any questions .
 
-``npm i`` to download dependencies and run with ``npm start``.
-establish connection with firebase .download private key from firebase after creating this app in firebase .
+``npm i`` to download dependencies and run with ``npm start``in vs code .you will be given a QR code ,scan this code thorugh the expo app in your mobile. 
+
+
+establish connection with firebase . download private key from firebase after creating this app in firebase .
+
+
 to run node js server :
 ```shell
 cd Server
